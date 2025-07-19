@@ -1,0 +1,151 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "kitty-icat",
+    "source": "~/Pictures/static/miku-gyari.jpg",
+    "width": 40,
+    "height": 20,
+    "padding": {
+      "top": 0,
+      "left": 0,
+      "right": 0
+    },
+    "position": "left"
+  },
+
+  "display": {
+    "separator": ": ",
+    "constants": [
+      "───────────────────────────"
+    ],
+    "key": {
+      "type": "string",
+      "paddingLeft": 2
+    }
+  },
+
+  "modules": [
+    {
+      "type": "custom",
+      "format": "┌{$1} {#1}Hardware Information{#} {$1}┐",
+      "keyColor": "cyan"
+    },
+    {
+      "type": "host",
+      "key": "󰌢  Host ",
+      "keyColor": "cyan",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "monitor",
+      "key": "├ 󰍹  Res ",
+      "keyColor": "white",
+      "outputColor": "white"
+    },
+    {
+      "type": "cpu",
+      "key": "├ 󰍛  Cpu ",
+      "keyColor": "yellow",
+      "outputColor": "yellow"
+    },
+    {
+      "type": "gpu",
+      "key": "├ 󰾲  Gpu ",
+      "keyColor": "green",
+      "outputColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "├   Memory ",
+      "keyColor": "magenta",
+      "outputColor": "magenta"
+    },
+    {
+      "type": "disk",
+      "key": "└   Disk ",
+      "keyColor": "dim_",
+      "outputColor": "dim_"
+    },
+    {
+      "type": "custom",
+      "format": "├{$1} {#1}Software Information{#} {$1}┤",
+      "keyColor": "blue"
+    },
+    {
+      "type": "title",
+      "key": "  User ",
+      "keyColor": "blue",
+      "outputColor": "blue"
+    },
+    {
+      "type": "os",
+      "key": "├   OS ",
+      "keyColor": "white",
+      "outputColor": "white"
+    },
+    {
+      "type": "kernel",
+      "key": "├   Kernel ",
+      "keyColor": "green",
+      "outputColor": "green"
+    },
+    {
+      "type": "packages",
+      "key": "├ 󰏖  Packages ",
+      "keyColor": "magenta",
+      "outputColor": "magenta"
+    },
+    {
+      "type": "shell",
+      "key": "├   Shell ",
+      "keyColor": "cyan",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "uptime",
+      "key": "├   Uptime ",
+      "keyColor": "yellow",
+      "outputColor": "yellow"
+    },
+    {
+      "type": "command",
+      "key": "└   OS Age ",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+      "keyColor": "dim_",
+      "outputColor": "dim_"
+    },
+    {
+      "type": "custom",
+      "format": "├{$1} {#1}Current Linux Themes{#} {$1}┤"
+    },
+    {
+      "type": "wm",
+      "key": "  Wm ",
+      "keyColor": "green",
+      "outputColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": "├   Terminal ",
+      "keyColor": "blue",
+      "outputColor": "blue"
+    },
+    {
+      "type": "terminalfont",
+      "key": "├   Font ",
+      "keyColor": "red",
+      "outputColor": "red"
+    },
+    {
+      "type": "colors",
+      "key": "└   Color ",
+      "keyColor": "default",
+      "symbol": "circle"
+    },
+    {
+      "type": "custom",
+      "format": "└{$1}──────────────────────{$1}┘"
+    }
+  ]
+}
