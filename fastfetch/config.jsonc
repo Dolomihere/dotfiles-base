@@ -4,148 +4,171 @@
   "logo": {
     "type": "kitty-icat",
     "source": "~/Pictures/static/miku-gyari.jpg",
-    "width": 40,
-    "height": 20,
+    "width": 32,
+    "height": 24,
     "padding": {
       "top": 0,
       "left": 0,
-      "right": 0
+      "right": 4
     },
     "position": "left"
   },
 
   "display": {
-    "separator": ": ",
+    "separator": "",
     "constants": [
-      "───────────────────────────"
+      "──────────────────────────────────",
+      "╴╴╴╴╴╴╴╴╴╴"
     ],
     "key": {
       "type": "string",
-      "paddingLeft": 2
+      "paddingLeft": 0
     }
   },
 
   "modules": [
     {
       "type": "custom",
-      "format": "┌{$1} {#1}Hardware Information{#} {$1}┐",
-      "keyColor": "cyan"
+      "format": "┌─ {#1}Hardware Information{#} {$1}┐"
     },
     {
       "type": "host",
-      "key": "󰌢  Host ",
+      "format": "{vendor} {name}",
+      "key": "│󰌢  Host",
       "keyColor": "cyan",
       "outputColor": "cyan"
     },
     {
       "type": "monitor",
-      "key": "├ 󰍹  Res ",
+      "format": "{width}x{height} px @ {refresh-rate} Hz {physical-width}x{physical-height} mm ({ppi} ppi)",
+      "key": "│├ 󰍹  Res ",
       "keyColor": "white",
       "outputColor": "white"
     },
     {
       "type": "cpu",
-      "key": "├ 󰍛  Cpu ",
+      "format": "{name} ({cores-logical}) @ {freq-max}",
+      "key": "│├ 󰍛  Cpu ",
       "keyColor": "yellow",
       "outputColor": "yellow"
     },
     {
       "type": "gpu",
-      "key": "├ 󰾲  Gpu ",
+      "format": "{name} @ {frequency} [{type}]",
+      "key": "│├ 󰾲  Gpu ",
       "keyColor": "green",
       "outputColor": "green"
     },
     {
       "type": "memory",
-      "key": "├   Memory ",
+      "format": "{used} / {total} ({percentage})",
+      "key": "│├   Memory ",
       "keyColor": "magenta",
       "outputColor": "magenta"
     },
     {
       "type": "disk",
-      "key": "└   Disk ",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}",
+      "key": "│└   Disk ",
       "keyColor": "dim_",
       "outputColor": "dim_"
     },
     {
       "type": "custom",
-      "format": "├{$1} {#1}Software Information{#} {$1}┤",
-      "keyColor": "blue"
+      "format": "└─{$1}{$2}"
+    },
+    {
+      "type": "custom",
+      "format": "┌─ {#1}Software Information{#} {$1}┐"
     },
     {
       "type": "title",
-      "key": "  User ",
+      "format": "{user-name-colored}@{host-name-colored}",
+      "key": "│  User ",
       "keyColor": "blue",
       "outputColor": "blue"
     },
     {
       "type": "os",
-      "key": "├   OS ",
+      "format": "{pretty-name} {arch}",
+      "key": "│├   OS ",
       "keyColor": "white",
       "outputColor": "white"
     },
     {
       "type": "kernel",
-      "key": "├   Kernel ",
+      "format": "{sysname} {release} ({page-size})",
+      "key": "│├   Kernel ",
       "keyColor": "green",
       "outputColor": "green"
     },
     {
       "type": "packages",
-      "key": "├ 󰏖  Packages ",
+      "format": "{nix-system} (nix-system)",
+      "key": "│├ 󰏖  Packages ",
       "keyColor": "magenta",
       "outputColor": "magenta"
     },
     {
       "type": "shell",
-      "key": "├   Shell ",
+      "format": "{pretty-name} {version}",
+      "key": "│├   Shell ",
       "keyColor": "cyan",
       "outputColor": "cyan"
     },
     {
       "type": "uptime",
-      "key": "├ 󰅐  Uptime ",
+      "format": "{hours} hours, {minutes} mins",
+      "key": "│├ 󱑎  Uptime ",
       "keyColor": "yellow",
       "outputColor": "yellow"
     },
     {
       "type": "command",
-      "key": "└   OS Age ",
+      "format": "{result}",
+      "key": "│└ 󰃶  OS Age ",
       "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
       "keyColor": "dim_",
       "outputColor": "dim_"
     },
     {
       "type": "custom",
-      "format": "├{$1} {#1}Current Linux Themes{#} {$1}┤"
+      "format": "└─{$1}{$2}"
+    },
+    {
+      "type": "custom",
+      "format": "┌─ {#1}Current Linux Themes{#} {$1}┐"
     },
     {
       "type": "wm",
-      "key": "  Wm ",
+      "format": "{pretty-name} ({protocol-name})",
+      "key": "│  Wm ",
       "keyColor": "green",
       "outputColor": "green"
     },
     {
       "type": "terminal",
-      "key": "├   Terminal ",
+      "format": "{pretty-name} {version}",
+      "key": "│├   Terminal ",
       "keyColor": "blue",
       "outputColor": "blue"
     },
     {
       "type": "terminalfont",
-      "key": "├   Font ",
+      "format": "{combined}",
+      "key": "│├   Font ",
       "keyColor": "red",
       "outputColor": "red"
     },
     {
       "type": "colors",
-      "key": "└   Color ",
+      "key": "│└   Color ",
       "keyColor": "default",
       "symbol": "circle"
     },
     {
       "type": "custom",
-      "format": "└{$1}──────────────────────{$1}┘"
-    }
+      "format": "└─{$1}{$2}"
+    },
   ]
 }
