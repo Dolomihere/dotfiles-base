@@ -1,0 +1,43 @@
+# Font config
+font=Mononoki Nerd Font
+font-size=16
+
+# Background image
+image=~/Pictures/view.jpg
+scaling=fit
+
+# command set
+show-failed-attempts
+hide-keyboard-layout
+ignore-empty-password
+
+# Colors
+color=4F5A65
+bs-hl-color=C97D51
+caps-lock-bs-hl-color=C97D51
+caps-lock-key-hl-color=C97D51
+inside-color=00000000
+inside-clear-color=00000000
+inside-caps-lock-color=00000000
+inside-ver-color=00000000
+inside-wrong-color=00000000
+key-hl-color=C97D51
+layout-bg-color=00000000
+layout-border-color=00000000
+layout-text-color=A9A49D
+line-color=1C2932
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+ring-color=323D47
+ring-clear-color=C97D51
+ring-caps-lock-color=C97D51
+ring-ver-color=C97D51
+ring-wrong-color=C97D51
+separator-color=00000000
+text-color=A9A49D
+text-clear-color=C97D51
+text-caps-lock-color=C97D51
+text-ver-color=C97D51
+text-wrong-color=C97D51

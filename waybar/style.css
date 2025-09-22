@@ -1,0 +1,134 @@
+@define-color bg #1f212a;
+@define-color mountain_grey #736362;
+@define-color sky_orange #b66750;
+@define-color forest_green #515647;
+@define-color highlight_pink #e0a793;
+@define-color water_blue #43676c;
+
+@define-color text_color #d1c8b3;
+@define-color clock @sky_orange;
+@define-color backlight @water_blue;
+@define-color audio @water_blue;
+@define-color network @water_blue;
+@define-color cpu @forest_green;
+@define-color ram @sky_orange;
+@define-color temp @sky_orange;
+@define-color battery @mountain_grey;
+@define-color storage @mountain_grey;
+
+* {
+  font: 16px "Mononoki Nerd Font";
+  border-radius: 0;
+  min-height: 0;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 10px 10px 0px 10px; /* top right bottom left */
+}
+
+#workspaces {
+  margin: 0px 5px;
+}
+
+#workspaces button {
+  padding: 0px 4px;
+  color: @text_color;
+}
+
+#workspaces button.focused {
+  color: @highlight_pink;
+}
+
+#workspaces button.urgent {
+  background-color: salmon;
+}
+
+#window {
+  padding: 0px 10px;
+  background-color: @forest_green;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: @text_color;
+}
+
+#custom-icon {
+  padding: 5px 0px;
+  background-color: @water_blue;
+  color: @text_color;
+}
+
+#custom-weather {
+  padding: 5px 10px;
+  background-color: @mountain_grey;
+  color: @text_color;
+}
+
+#clock, #backlight, #pulseaudio, #wireplumber, #network, #cpu, #memory, #temperature, #battery, #disk {
+  padding: 5px 10px;
+  color: @text_color;
+}
+
+#backlight, #pulseaudio, #wireplumber, #network, #cpu, #memory, #temperature, #battery, #disk {
+  margin-left: 10px;
+}
+
+#clock {
+  background-color: @clock;
+}
+
+#backlight {
+  background-color: @backlight;
+}
+
+#pulseaudio, #wireplumber {
+  background-color: @audio;
+}
+
+#network {
+  background-color: @network;
+}
+
+#cpu {
+  background-color: @cpu;
+}
+
+#memory {
+  background-color: @ram;
+}
+
+#temperature {
+  background-color: @temp;
+}
+
+#battery {
+  background-color: @battery;
+}
+
+#battery.warning {
+  color: khaki;
+}
+
+#battery.critical {
+  color: salmon;
+}
+
+#battery.charging, #battery.plugged {
+  color: @text_color;
+}
+
+#disk {
+  background-color: @storage;
+}
+
+menu {
+  background: @mountain_grey;
+  color: @text_color;
+}
+
+menuitem:hover {
+  background-color: @sky_orange;
+}
