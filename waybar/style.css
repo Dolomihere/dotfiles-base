@@ -1,90 +1,193 @@
-@define-color bg #1f212a;
-@define-color mountain_grey #736362;
-@define-color sky_orange #b66750;
-@define-color forest_green #515647;
-@define-color highlight_pink #e0a793;
-@define-color water_blue #43676c;
+@define-color icon @module_bg_color;
+@define-color clock @module_bg_color;
+@define-color weather @module_bg_color;
+@define-color worksp @module_bg_color;
+@define-color backlight @module_bg_color;
+@define-color audio @module_bg_color;
+@define-color network @module_bg_color;
+@define-color cpu @module_bg_color;
+@define-color ram @module_bg_color;
+@define-color temp @module_bg_color;
+@define-color battery @module_bg_color;
+@define-color storage @module_bg_color;
 
-@define-color text_color #d1c8b3;
-@define-color clock @sky_orange;
-@define-color backlight @water_blue;
-@define-color audio @water_blue;
-@define-color network @water_blue;
-@define-color cpu @forest_green;
-@define-color ram @sky_orange;
-@define-color temp @sky_orange;
-@define-color battery @mountain_grey;
-@define-color storage @mountain_grey;
+@define-color bar_color #231E24;
+@define-color text_color #E8C2A1;
+@define-color border_color #FABD76;
+@define-color module_bg_color #4A505C;
+@define-color worksp_btn_color #8D9F9D;
+@define-color worksp_active_color #99CEC9;
+@define-color worksp_hover_color #8D9F9D;
 
-* {
-  font: 16px "Mononoki Nerd Font";
-  border-radius: 0;
-  min-height: 0;
-}
+/* --------------- */
+/* define bar rule */
+/* --------------- */ 
 
 .modules-left,
 .modules-center,
 .modules-right {
-  margin: 10px 10px 0px 10px; /* top right bottom left */
+  margin: 0; /* top right bottom left */
 }
 
-#workspaces {
-  margin: 0px 5px;
-}
-
-#workspaces button {
-  padding: 0px 4px;
+window#waybar {
+  font: 16px "Mononoki Nerd Font";
+  background-color: transparent;
   color: @text_color;
 }
 
-#workspaces button.focused {
-  color: @highlight_pink;
+/* style for tooltip on hover on module */
+tooltip {
+  font: 16px "Mononoki Nerd Font";
 }
+
+tooltip box {
+  border-radius: 2px;
+}
+
+tooltip label {
+  font-size: 16px;
+}
+/* style for tooltip on hover on module */
+
+/* --------------------------------- */ 
+/* style that apply for most modules */
+/* --------------------------------- */
+
+#custom-icon,
+#clock,
+#custom-weather,
+#workspaces,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  border-radius: 2px;
+}
+
+#custom-icon,
+#clock,
+#custom-weather,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  color: @text_color;
+  padding: 4px 5px 4px 5px;
+}
+
+/* ------------------------------ */
+/* style only modules on the left */
+/* ------------------------------ */ 
+
+#custom-icon,
+#clock,
+#custom-weather {
+  margin: 0 5px 0 0;
+}
+
+#custom-icon {
+  background-color: @icon;
+  color: #4A505C;
+}
+
+/* custom menu from gtk */
+menu {
+  background: #4A505C;
+  border-radius: 2px;
+  color: @text_color;
+  padding: 0;
+}
+
+menuitem:hover {
+  background-color: #8D9F9D;
+  font-style: italic;
+}
+/* custom menu from gtk */
+
+#clock {
+  background-color: @clock;
+}
+
+#custom-weather {
+  background-color: @weather;
+}
+
+/* ---------------------------- */
+/* style only modules in middle */
+/* ---------------------------- */
+
+button:hover {
+  background: none;
+}
+
+#workspaces {
+  background-color: @worksp;
+}
+
+#workspaces button {
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
+  color: @worksp_btn_color;
+  padding: 0 5px;
+  text-shadow: none;
+}
+
+#workspaces button:hover {
+  border-radius: 2px;
+  transition: none;
+}
+
+#workspaces button.active {
+  color: @worksp_active_color;
+}
+
+#workspaces button.active:hover {
+  background-color: @worksp_hover_color;
+}
+
+/* #workspaces button.focused {
+}
+
+#workspaces button.focused:hover {
+} */
 
 #workspaces button.urgent {
   background-color: salmon;
 }
 
-#window {
-  padding: 0px 10px;
-  background-color: @forest_green;
-}
+/* ------------------------------- */
+/* style only modules on the right */
+/* ------------------------------- */ 
 
-window#waybar {
-  background-color: transparent;
-  color: @text_color;
-}
-
-#custom-icon {
-  padding: 5px 0px;
-  background-color: @water_blue;
-  color: @text_color;
-}
-
-#custom-weather {
-  padding: 5px 10px;
-  background-color: @mountain_grey;
-  color: @text_color;
-}
-
-#clock, #backlight, #pulseaudio, #wireplumber, #network, #cpu, #memory, #temperature, #battery, #disk {
-  padding: 5px 10px;
-  color: @text_color;
-}
-
-#backlight, #pulseaudio, #wireplumber, #network, #cpu, #memory, #temperature, #battery, #disk {
-  margin-left: 10px;
-}
-
-#clock {
-  background-color: @clock;
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  margin: 0 0 0 5px;
 }
 
 #backlight {
   background-color: @backlight;
 }
 
-#pulseaudio, #wireplumber {
+#pulseaudio,
+#wireplumber {
   background-color: @audio;
 }
 
@@ -116,19 +219,11 @@ window#waybar {
   color: salmon;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
   color: @text_color;
 }
 
 #disk {
   background-color: @storage;
-}
-
-menu {
-  background: @mountain_grey;
-  color: @text_color;
-}
-
-menuitem:hover {
-  background-color: @sky_orange;
 }
