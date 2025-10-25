@@ -26,13 +26,12 @@
     "menu-actions": {
       "suspend": "systemctl suspend",
       "shutdown": "systemctl poweroff",
-      "reboot": "systemctl reboot"
-      //"hibernate": "systemctl hibernate"
+      "reboot": "systemctl reboot" 
     }
   },
 
   "custom/weather": {
-    "exec": "/run/current-system/sw/bin/curl -s -A 'Thanks for the module!!' 'https://wttr.in/Vietnam?format=1'",
+    "exec": "curl -s -A 'Thanks for the module!! Love from NixOS' 'https://wttr.in/Vietnam?format=1'",
     "interval": 14400,
     "format": "{}",
     "tooltip": false,
@@ -41,7 +40,7 @@
 
   "clock": {
     "format": "<span bgcolor='#99CEC9' fgcolor='#4A505C'> 󰃰 </span> {:%b %d | %H:%M}",
-    "format-alt": "Today is {:%A at %I:%M %p}",
+    "format-alt": "Today is {:%A at <span bgcolor='#99CEC9' fgcolor='#4A505C'> %I:%M %p </span>}",
     "tooltip-format": "<big>Calendar</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode"          : "month",
@@ -60,23 +59,23 @@
     "format": "<span bgcolor='#99CEC9' fgcolor='#4A505C'> 󰃟 </span> {percent}%",
     "scroll-step": 0.5,
     "tooltip": false,
-    "on-click": "/run/current-system/sw/bin/brightnessctl set +1%",
-    "on-click-right": "/run/current-system/sw/bin/brightnessctl set 1%-",
-    "on-scroll-up": "/run/current-system/sw/bin/brightnessctl set +1%",
-    "on-scroll-down": "/run/current-system/sw/bin/brightnessctl set 1%-"
+    "on-click": "brightnessctl set +1%",
+    "on-click-right": "brightnessctl set 1%-",
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-"
   },
 
   "wireplumber": {
     "format": "<span bgcolor='#99CEC9' fgcolor='#4A505C'> {icon} </span> {volume}%",
-    "format-bluetooth": "  {volume}%",
-    "format-muted": "󰝟",
+    "format-bluetooth": "<span bgcolor='#99CEC9' fgcolor='#4A505C'>  </span> {volume}%",
+    "format-muted": "<span bgcolor='#99CEC9' fgcolor='#4A505C'> 󰝟 </span>",
     "format-icons": {
       "headphones": "",
       "default": ["󰖀", "󰕾"]
     },
-    "on-click": "/run/current-system/sw/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
-    "on-click-middle": "/run/current-system/sw/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "/run/current-system/sw/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
     "scroll-step": 0.5,
     "tooltip": false
   },

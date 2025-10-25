@@ -1,17 +1,2 @@
 # List of git ignore file upload to github in config that i don't need to be on github
 
-azpainter/
-Awesomeness/
-chromium/
-cmus/
-dconf/
-ibus/
-fcitx/
-fcitx5/
-JetBrains/
-pulse/
-QtProject.conf
-systemd/
-user-dirs.dirs
-user-dirs.locale
-VSCodium/

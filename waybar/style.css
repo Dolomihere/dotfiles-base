@@ -11,7 +11,7 @@
 @define-color battery @module_bg_color;
 @define-color storage @module_bg_color;
 
-@define-color bar_color #231E24;
+@define-color bar_color transparent;
 @define-color text_color #E8C2A1;
 @define-color border_color #FABD76;
 @define-color module_bg_color #4A505C;
@@ -31,7 +31,7 @@
 
 window#waybar {
   font: 16px "Mononoki Nerd Font";
-  background-color: transparent;
+  background-color: @bar_color;
   color: @text_color;
 }
 
@@ -212,11 +212,11 @@ button:hover {
 }
 
 #battery.warning {
-  color: khaki;
+  color: #D97C73;
 }
 
 #battery.critical {
-  color: salmon;
+  color: #FB191A;
 }
 
 #battery.charging,

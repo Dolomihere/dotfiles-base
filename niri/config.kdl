@@ -3,8 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
-spawn-at-startup "/run/current-system/sw/bin/xwayland-satellite"
-
 environment {
     DISPLAY ":0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -70,13 +68,19 @@ input {
 }
 
 cursor {
-    xcursor-theme "Future-cursors"
-    xcursor-size 32
+    xcursor-theme "graphite-light-nord"
+    xcursor-size 24
     hide-when-typing
 }
 
 hotkey-overlay {
     skip-at-startup
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }
 
 overview {
@@ -120,6 +124,12 @@ output "eDP-1" {
     position x=0 y=0
 }
 
+output "HDMI-A-1" {
+    scale 1
+    transform "normal"
+    position x=1920 y=0
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -150,7 +160,7 @@ layout {
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     preset-window-heights {
-	proportion 0.33333
+        proportion 0.33333
         proportion 0.5
         proportion 0.75
         proportion 1.0
@@ -310,19 +320,19 @@ animations {
         duration-ms 300
         curve "linear"
         custom-shader r"
-	    vec4 drop_and_rotate(vec3 coords_geo, vec3 size_geo) {
+            vec4 drop_and_rotate(vec3 coords_geo, vec3 size_geo) {
                 float progress = niri_clamped_progress * niri_clamped_progress;
-		vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
-		coords.y += (1.0 - progress) * 1440.0; // Start above screen, move down
-		float random = (niri_random_seed - 0.5) / 2.0;
-		random = sign(random) - random;
-		float max_angle = 0.5 * random;
-		float angle = (1.0 - progress) * max_angle; // Reverse rotation
-		mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
-		coords = rotate * coords;
-		coords_geo = vec3(coords / size_geo.xy + vec2(0.5, 1.0), 1.0);
-		vec3 coords_tex = niri_geo_to_tex * coords_geo;
-		vec4 color = texture2D(niri_tex, coords_tex.st);
+                vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
+                coords.y += (1.0 - progress) * 1440.0; // Start above screen, move down
+                float random = (niri_random_seed - 0.5) / 2.0;
+                random = sign(random) - random;
+                float max_angle = 0.5 * random;
+                float angle = (1.0 - progress) * max_angle; // Reverse rotation
+                mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+                coords = rotate * coords;
+                coords_geo = vec3(coords / size_geo.xy + vec2(0.5, 1.0), 1.0);
+                vec3 coords_tex = niri_geo_to_tex * coords_geo;
+                vec4 color = texture2D(niri_tex, coords_tex.st);
                 return color;
             }
 
@@ -334,12 +344,12 @@ animations {
 
     window-close {
         duration-ms 300
-   	curve "linear"
-   	custom-shader r"
- 	    vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {
- 	    	float progress = niri_clamped_progress * niri_clamped_progress;
-	    	vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
- 	    	coords.y -= progress * 1440.0;
+        curve "linear"
+        custom-shader r"
+            vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {
+                float progress = niri_clamped_progress * niri_clamped_progress;
+                vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
+                coords.y -= progress * 1440.0;
                 float random = (niri_random_seed - 0.5) / 2.0;
                 random = sign(random) - random;
                 float max_angle = 0.5 * random;
@@ -350,7 +360,7 @@ animations {
                 vec3 coords_tex = niri_geo_to_tex * coords_geo;
                 vec4 color = texture2D(niri_tex, coords_tex.st);
                 return color;
-    	    }
+            }
 
             vec4 close_color(vec3 coords_geo, vec3 size_geo) {
                 return fall_and_rotate(coords_geo, size_geo);

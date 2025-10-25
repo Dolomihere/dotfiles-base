@@ -3,7 +3,7 @@
 
   "logo": {
     "type": "kitty-icat",
-    "source": "$HOME/Pictures/marisa.png",
+    "source": "$HOME/Dotfiles/fastfetch/images/cirnOS.jpeg",
     "width": 30,
     "height": 22,
     "padding": {
