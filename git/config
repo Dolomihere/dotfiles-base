@@ -1,0 +1,22 @@
+[alias]
+  lg = "log --graph --pretty=format:'%C(bold red)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(yellow)%ad%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=human --decorate=short --all"
+
+[commit]
+  gpgSign = true
+
+[gpg]
+  format = "ssh"
+
+[gpg "ssh"]
+  allowedSignersFile = "~/.ssh/allowed_signers"
+  
+[ini]
+  defaultBranch = "main"
+
+[tag]
+  gpgSign = true
+
+[user]
+  email = "cnqb.tc@gmail.com"
+  name = "ChungBao"
+  signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4Ba0zLoDtAtp+hciKwnLIkzJyRlvCUZFP0WcYsJD4V"

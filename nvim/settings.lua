@@ -74,3 +74,20 @@ opt.termguicolors = true
 
 opt.foldmethod = "marker"
 opt.foldlevel = 99
+
+local disabled_built_ins = {
+  "tutor",
+}
+
+if vim.fn.has "nvim-0.11" > 0 then
+  vim.diagnostic.config {
+    virtual_lines = {
+      current_lines = true,
+    },
+  }
+end
+
+for _, plugin in pairs(disabled_built_ins) do
+  g["loaded_" .. plugin] = 1
+end
+
