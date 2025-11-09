@@ -3,6 +3,9 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
+spawn-at-startup "xdg-desktop-portal-gnome"
+spawn-at-startup "xdg-desktop-portal-gtk"
+
 environment {
     DISPLAY ":0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
