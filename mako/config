@@ -6,8 +6,8 @@ height=100
 anchor=bottom-right
 layer=top
 
-border-size=2
-border-radius=9,9,0,9
+border-size=3
+border-radius=10,10,0,10
 outer-margin=0,5,5,0
 margin=0,0,10,0
 padding=12,0,12,10
@@ -15,10 +15,10 @@ padding=12,0,12,10
 default-timeout=15000
 max-visible=3
 
-background-color=#f2e9e1
-text-color=#575279
-border-color=#cecacd
-progress-color=over #286983
+background-color=#F7F3EE
+text-color=#605A52
+border-color=#CACFDB
+progress-color=over #9B7896
 
 [urgency=high]
-border-color=#b4637a
+border-color=#8F5652

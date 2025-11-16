@@ -2,11 +2,10 @@
 font=Mononoki Nerd Font
 font-size=16
 
-# Background image
-image=~/Pictures/view.jpg
+# Background image properties
 scaling=fit
 
-# command set
+# Command set
 show-failed-attempts
 hide-keyboard-layout
 ignore-empty-password

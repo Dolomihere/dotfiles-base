@@ -12,12 +12,12 @@
 @define-color storage @module_bg_color;
 
 @define-color bar_color transparent;
-@define-color text_color #605A52;
-@define-color border_color #000000;
-@define-color module_bg_color #F7F3EE;
-@define-color worksp_btn_color #8FAEAD;
-@define-color worksp_active_color #6B9494;
-@define-color worksp_hover_color #C6D4D3;
+@define-color text_color #E8C2A1;
+@define-color border_color #FABD76;
+@define-color module_bg_color #4A505C;
+@define-color worksp_btn_color #8D9F9D;
+@define-color worksp_active_color #99CEC9;
+@define-color worksp_hover_color #8D9F9D;
 
 /* --------------- */
 /* define bar rule */
@@ -30,26 +30,22 @@
 }
 
 window#waybar {
-  font: 14px "Mononoki Nerd Font";
+  font: 16px "Mononoki Nerd Font";
   background-color: @bar_color;
   color: @text_color;
 }
 
-window#waybar > box {
- margin: 8px 10px 0 10px; 
-}
-
 /* style for tooltip on hover on module */
 tooltip {
-  font: 14px "Mononoki Nerd Font";
+  font: 16px "Mononoki Nerd Font";
 }
 
-tooltip > box {
+tooltip box {
   border-radius: 2px;
 }
 
-tooltip > label {
-  font-size: 14px;
+tooltip label {
+  font-size: 16px;
 }
 /* style for tooltip on hover on module */
 
@@ -138,7 +134,7 @@ button:hover {
   background-color: @worksp;
 }
 
-#workspaces > button {
+#workspaces button {
   box-shadow: none;
   border: none;
   border-radius: 2px;
@@ -147,16 +143,16 @@ button:hover {
   text-shadow: none;
 }
 
-#workspaces > button:hover {
+#workspaces button:hover {
   border-radius: 2px;
   transition: none;
 }
 
-#workspaces > button.active {
+#workspaces button.active {
   color: @worksp_active_color;
 }
 
-#workspaces > button.active:hover {
+#workspaces button.active:hover {
   background-color: @worksp_hover_color;
 }
 
@@ -166,7 +162,7 @@ button:hover {
 #workspaces button.focused:hover {
 } */
 
-#workspaces > button.urgent {
+#workspaces button.urgent {
   background-color: salmon;
 }
 
