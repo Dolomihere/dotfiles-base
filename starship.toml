@@ -28,7 +28,7 @@ $time\
 """
 
 [fill]
-symbol = '─'
+symbol = '·'
 
 [username]
 format = '[ $user]($style)'
@@ -95,7 +95,10 @@ cherry_pick = '[Cherry-p](bg:#394260 fg:#FFA07A)'
 bisect = '[Bisect](bg:#394260 fg:#FFA07A)'
 
 [shell]
-bash_indicator = ' bsh'
+bash_indicator = ' bsh'
+fish_indicator = '󰈺 fsh'
+powershell_indicator = ' psh'
+zsh_indicator = '󰬡 zsh'
 format = '[ $indicator ]($style)'
 disabled = false
 style = 'bg:#1D2230 fg:#A0A9CB'
@@ -103,7 +106,7 @@ style = 'bg:#1D2230 fg:#A0A9CB'
 [shlvl]
 disabled = false
 format = '[lv.$shlvl ]($style)'
-threshold = 4
+threshold = 2
 style = 'bg:#1D2230 bold yellow'
 
 [status]

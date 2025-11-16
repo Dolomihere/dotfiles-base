@@ -2,172 +2,163 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 
   "logo": {
-    "type": "kitty-icat",
-    "source": "${HOME}/.config/fastfetch/images/cirnOS.jpeg",
-    "width": 30,
-    "height": 22,
+    "type": "file",
+    "source": "${HOME}/.config/fastfetch/logos/ascii.txt",
     "padding": {
       "top": 0,
       "left": 0,
       "right": 2
     },
-    "position": "left"
+    "position": "left",
+    "color": {
+      "1": "#886A44"
+    }
   },
 
   "display": {
-    "separator": "- ",
+    "separator": " ",
     "constants": [
-      "────────────────────────────────────┐",
-      "──────────────────────────────────────────────────────────┘"
+      "\u001b[95m══════════════════════",
+      "\u001b[37m🭵\u001b[0m" 
     ],
     "key": {
       "type": "string",
-      "paddingLeft": 0
+      "paddingLeft": 1
+    },
+    "color": {
+      "separator": "blue"
     }
   },
 
   "modules": [
     {
       "type": "custom",
-      "format": "┌─ {#1}Hardware Information{#} {$1}"
-    },
-    {
-      "type": "host",
-      "format": "{vendor} {name}",
-      "key": "│ 󰌢  Host ",
-      "keyColor": "cyan",
-      "outputColor": "cyan"
-    },
-    {
-      "type": "monitor",
-      "format": "{width}x{height} px @ {refresh-rate} Hz {physical-width}x{physical-height} mm ({ppi} ppi)",
-      "key": "│ ├ 󰍹  Res ",
-      "keyColor": "white",
-      "outputColor": "white"
-    },
-    {
-      "type": "cpu",
-      "format": "{name} ({cores-logical}) @ {freq-max}",
-      "key": "│ ├ 󰍛  Cpu ",
-      "keyColor": "yellow",
-      "outputColor": "yellow"
-    },
-    {
-      "type": "gpu",
-      "format": "{name} @ {frequency} [{type}]",
-      "key": "│ ├ 󰾲  Gpu ",
-      "keyColor": "green",
-      "outputColor": "green"
-    },
-    {
-      "type": "memory",
-      "format": "{used} / {total} ({percentage})",
-      "key": "│ ├   Memory ",
-      "keyColor": "magenta",
-      "outputColor": "magenta"
-    },
-    {
-      "type": "disk",
-      "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}",
-      "key": "│ └   Disk ",
-      "keyColor": "dim_",
-      "outputColor": "dim_"
+      "format": " \u001b[95m System Information"
     },
     {
       "type": "custom",
-      "format": "└─{$2}"
+      "format": "{$1}"
     },
+
     {
       "type": "custom",
-      "format": "┌─ {#1}Software Information{#} {$1}"
-    },
-    {
-      "type": "title",
-      "format": "{user-name-colored}@{host-name-colored}",
-      "key": "│   User ",
-      "keyColor": "blue",
-      "outputColor": "blue"
+      "format": " 󰌢 OS"
     },
     {
       "type": "os",
-      "format": "{pretty-name} {arch}",
-      "key": "│ ├   OS ",
-      "keyColor": "white",
-      "outputColor": "white"
+      "format": "\u001b[97m{pretty-name} {arch}",
+      "key": "{$2} \u001b[97m  Distro "
     },
     {
       "type": "kernel",
-      "format": "{sysname} {release} ({page-size})",
-      "key": "│ ├   Kernel ",
-      "keyColor": "green",
-      "outputColor": "green"
+      "format": "\u001b[32m{sysname} {release} ({page-size})",
+      "key": "{$2} \u001b[32m  Kernel "
     },
     {
       "type": "packages",
-      "key": "│ ├ 󰏖  Packages ",
-      "keyColor": "magenta",
+      "key": "{$2} \u001b[35m󰏖  Packages ",
       "outputColor": "magenta"
     },
     {
+      "type": "command",
+      "format": "\u001b[97m{result}",
+      "key": "{$2} \u001b[97m󰃭  OS Age ",
+      "text": "birth_install=$(stat -c %W /etc); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+    },
+
+    {
+      "type": "custom",
+      "format": "  Hardware"
+    },
+    {
+      "type": "monitor",
+      "format": "\u001b[36m{name} {inch}\" {width}x{height} @ {refresh-rate} Hz {ppi} PPI",
+      "key": "{$2} \u001b[36m󰹑  Res "
+    },
+    {
+      "type": "bios",
+      "format": "\u001b[31m{version} [{type}]",
+      "key": "{$2} \u001b[31m⚙  BIOS "
+    },
+    {
+      "type": "cpu",
+      "format": "\u001b[33m{name} <{cores-physical}/{cores-logical}> max {freq-max}",
+      "key": "{$2} \u001b[33m󰍛  Cpu "
+    },
+    {
+      "type": "gpu",
+      "format": "\u001b[32m {name} @ {frequency} [{type}]",
+      "key": "{$2} \u001b[32m󰾲  Gpu "
+    },
+    {
+      "type": "memory",
+      "format": "\u001b[35m{used} / {total} ({percentage}\u001b[35m)",
+      "key": "{$2} \u001b[35m  Ram "
+    },
+    {
+      "type": "disk",
+      "format": "\u001b[97m{size-used} / {size-total} ({size-percentage}\u001b[97m) <{filesystem}>",
+      "key": "{$2} \u001b[97m  Disk "
+    },
+
+    {
+      "type": "custom",
+      "format": "  Current Session"
+    },
+    {
+      "type": "users",
+      "format": "\u001b[34m<{name}> at ({session-name}) {login-time}",
+      "key": "{$2} \u001b[34m  User "
+    },
+    {
       "type": "shell",
-      "format": "{pretty-name} {version}",
-      "key": "│ ├   Shell ",
-      "keyColor": "cyan",
-      "outputColor": "cyan"
+      "format": "\u001b[36m{pretty-name} {version}",
+      "key": "{$2} \u001b[36m  Shell "
     },
     {
       "type": "uptime",
-      "format": "{hours} hours, {minutes} mins",
-      "key": "│ ├ 󱑎  Uptime ",
-      "keyColor": "yellow",
-      "outputColor": "yellow"
+      "format": "\u001b[33m{hours} hours, {minutes} mins",
+      "key": "{$2} \u001b[33m  Uptime "
     },
     {
-      "type": "command",
-      "format": "{result}",
-      "key": "│ └ 󰃭  OS Age ",
-      "text": "birth_install=$(stat -c %W /etc); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
-      "keyColor": "dim_",
-      "outputColor": "dim_"
+      "type": "localip",
+      "format": "\u001b[97m({ifname}) {ipv4}",
+      "key": "{$2} \u001b[97m󰩠  Ip "
     },
+
     {
       "type": "custom",
-      "format": "└─{$2}"
-    },
-    {
-      "type": "custom",
-      "format": "┌─ {#1}Current Linux Themes{#} {$1}"
+      "format": "  Desktop Environment"
     },
     {
       "type": "wm",
-      "format": "{pretty-name} ({protocol-name})",
-      "key": "│ ◲  Wm ",
-      "keyColor": "green",
-      "outputColor": "green"
+      "format": "\u001b[32m{pretty-name} [{protocol-name}]",
+      "key": "{$2} \u001b[32m◲  Wm "
     },
     {
       "type": "terminal",
-      "format": "{pretty-name} {version}",
-      "key": "│ ├   Terminal ",
-      "keyColor": "blue",
-      "outputColor": "blue"
+      "format": "\u001b[34m{pretty-name} {version}",
+      "key": "{$2} \u001b[34m  Terminal "
     },
     {
       "type": "terminalfont",
-      "format": "{combined}",
-      "key": "│ ├   Font ",
-      "keyColor": "red",
-      "outputColor": "red"
+      "format": "\u001b[31m{combined}",
+      "key": "{$2} \u001b[31m  Font "
+    },
+    {
+      "type": "cursor",
+      "format": "\u001b[97m{theme} ({size}px)",
+      "key": "{$2} \u001b[97m  Cursor "
+    },
+
+    {
+       "type": "custom",
+       "format": "{$1}"
     },
     {
       "type": "colors",
-      "key": "│ └   Color ",
-      "keyColor": "default",
-      "symbol": "circle"
-    },
-    {
-      "type": "custom",
-      "format": "└─{$2}"
+      "paddingLeft": 2,
+      "symbol": "square"
     }
   ]
 }

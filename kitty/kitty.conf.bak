@@ -2779,6 +2779,6 @@ map cmd+q quit
 
 
 # BEGIN_KITTY_THEME
-# seoulbones_light
+# Tomorrow
 include current-theme.conf
 # END_KITTY_THEME

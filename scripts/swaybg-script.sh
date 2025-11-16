@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
-IMG="$1"
-FALLBACK="${HOME}/Pictures/not-available.png"
+DIR="${HOME}/Pictures"
+FALLBACK="${DIR}/not-available.png"
 
-if [ -f "${IMG}" ]; then
-  swaybg -m fill -i "${IMG}"
+IMAGES=$(find "$DIR" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) ! -iname 'not-available.png')
+
+if [ -z "$IMAGES" ]; then
+  if [ -f "$FALLBACK" ]; then
+    IMG="${FALLBACK}"
+  else
+    exit 1
+  fi
 else
-  swaybg fill -i "${FALLBACK}"
+  IMG=$(echo "${IMAGES}" | shuf -n 1)
 fi
+
+swaybg -m fill -i "${IMG}"
 

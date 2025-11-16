@@ -1,3 +1,11 @@
+# .bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+eval "$(starship init bash)"
+
 # Simple transient prompt for bash
 delete_first_line() {
   tput cuu 2
@@ -9,3 +17,4 @@ last_command() {
 }
 
 PS0='\[$(delete_first_line)\]▸ $(last_command)\n'
+
