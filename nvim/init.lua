@@ -1,7 +1,2 @@
-require("settings.color")
-require("settings.settings")
-require("settings.keymap")
-require("settings.func")
-require("settings.stat-line")
-require("settings.tab")
-require("settings.term")
+require("config.lazy")
+
