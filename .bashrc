@@ -4,6 +4,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+export STARSHIP_CACHE=/tmp/starship/cache
 eval "$(starship init bash)"
 
 # Simple transient prompt for bash

@@ -9,8 +9,8 @@
   "niri/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "",
-      "default": ""
+      "active": "●",
+      "default": "○"
     },
     "disable-scroll": true
   },
@@ -34,17 +34,9 @@
     "on-click-right": "fuzzel"
   },
 
-  "custom/weather": {
-    "exec": "curl -s -A 'Thanks for the module!! Love from NixOS' 'https://wttr.in/Vietnam?format=1'",
-    "interval": 14400,
-    "format": "{}",
-    "tooltip": false,
-    "return-type": "text"
-  },
-
   "clock": {
-    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰃰 </span> {:%b %d | %H:%M}",
-    "format-alt": "Today is {:%A at <span bgcolor='#CACFDB' fgcolor='#605A52'> %I:%M %p </span>}",
+    "format": "Today is {:%A at <span bgcolor='#CACFDB' fgcolor='#605A52'> %I:%M %p </span>}",
+    "format-alt": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰃰 </span> {:%b %d | %H:%M}",
     "tooltip-format": "<big>Calendar</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode"          : "month",
@@ -57,6 +49,14 @@
         "today":      "<span color='#dbbc7f'><b><u>{}</u></b></span>"
       }
     }
+  },
+
+  "custom/weather": {
+    "exec": "curl -s -A 'Thanks for the module!! Love from NixOS' 'https://wttr.in/Vietnam?format=1'",
+    "interval": 14400,
+    "format": "{}",
+    "tooltip": false,
+    "return-type": "text"
   },
 
   "backlight": {
@@ -87,8 +87,8 @@
   
   "network": {
     "format": "{ifname}",
-    "format-wifi": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰘊 </span> {essid}",
-    "format-ethernet": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span> ethernet",
+    "format-wifi": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰘊 </span>",
+    "format-ethernet": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span>",
     "format-disconnected": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰖪 </span>",
     "tooltip-format": " {ifname}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",

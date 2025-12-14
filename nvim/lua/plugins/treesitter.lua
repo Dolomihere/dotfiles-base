@@ -1,13 +1,13 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate',
   lazy = false,
   branch = 'master',
   config = function()
     require('nvim-treesitter.configs').setup({
-      -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-      ensure_installed = { "bash", "c_sharp", "css", "html", "javascript", "json", "lua",
-      "markdown", "markdown_inline", "nix", "typescript", "vue" },
+      -- A list of parser names, or 'all' (the listed parsers MUST always be installed)
+      ensure_installed = { 'bash', 'c_sharp', 'css', 'html', 'javascript', 'json', 'lua',
+      'markdown', 'markdown_inline', 'nix', 'typescript', 'vue' },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
@@ -16,11 +16,11 @@ return {
       -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
       auto_install = true,
 
-      -- List of parsers to ignore installing (or "all")
-      -- ignore_install = { "javascript" },
+      -- List of parsers to ignore installing (or 'all')
+      -- ignore_install = { 'javascript' },
 
       ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-      -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+      -- parser_install_dir = '/some/path/to/store/parsers', -- Remember to run vim.opt.runtimepath:append('/some/path/to/store/parsers')!
 
       highlight = {
         enable = true,
@@ -29,7 +29,7 @@ return {
         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
         -- the name of the parser)
         -- list of language that will be disabled
-        -- disable = { "c" },
+        -- disable = { 'c' },
         -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
         -- disable = function(lang, buf)
         --    local max_filesize = 100 * 1024 -- 100 KB
@@ -49,10 +49,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<CR>",
-          node_incremental = "<CR>",
-          scope_incremental = "<TAB>",
-          node_decremental = "<S-TAB>",
+          init_selection = '<CR>',
+          node_incremental = '<CR>',
+          scope_incremental = '<TAB>',
+          node_decremental = '<S-TAB>',
         },
       },
     })

@@ -3,7 +3,7 @@
 
   "logo": {
     "type": "file",
-    "source": "${HOME}/.config/fastfetch/logos/ascii.txt",
+    "source": "${HOME}/.config/fastfetch/logo.txt",
     "padding": {
       "top": 0,
       "left": 0,
@@ -18,7 +18,7 @@
   "display": {
     "separator": " ",
     "constants": [
-      "\u001b[95m══════════════════════",
+      "\u001b[35m══════════════════════",
       "\u001b[37m🭵\u001b[0m" 
     ],
     "key": {
@@ -33,7 +33,7 @@
   "modules": [
     {
       "type": "custom",
-      "format": " \u001b[95m System Information"
+      "format": " \u001b[35m System Information"
     },
     {
       "type": "custom",
@@ -46,12 +46,12 @@
     },
     {
       "type": "os",
-      "format": "\u001b[97m{pretty-name} {arch}",
-      "key": "{$2} \u001b[97m  Distro "
+      "format": "\u001b[37m{pretty-name} {arch}",
+      "key": "{$2} \u001b[37m  Distro "
     },
     {
       "type": "kernel",
-      "format": "\u001b[32m{sysname} {release} ({page-size})",
+      "format": "\u001b[32m{sysname} {release}",
       "key": "{$2} \u001b[32m  Kernel "
     },
     {
@@ -61,8 +61,8 @@
     },
     {
       "type": "command",
-      "format": "\u001b[97m{result}",
-      "key": "{$2} \u001b[97m󰃭  OS Age ",
+      "format": "\u001b[37m{result}",
+      "key": "{$2} \u001b[37m󰃭  OS Age ",
       "text": "birth_install=$(stat -c %W /etc); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
     },
 
@@ -75,11 +75,14 @@
       "format": "\u001b[36m{name} {inch}\" {width}x{height} @ {refresh-rate} Hz {ppi} PPI",
       "key": "{$2} \u001b[36m󰹑  Res "
     },
-    {
+
+    /* {
       "type": "bios",
       "format": "\u001b[31m{version} [{type}]",
       "key": "{$2} \u001b[31m⚙  BIOS "
     },
+    */
+
     {
       "type": "cpu",
       "format": "\u001b[33m{name} <{cores-physical}/{cores-logical}> max {freq-max}",
@@ -97,8 +100,8 @@
     },
     {
       "type": "disk",
-      "format": "\u001b[97m{size-used} / {size-total} ({size-percentage}\u001b[97m) <{filesystem}>",
-      "key": "{$2} \u001b[97m  Disk "
+      "format": "\u001b[37m{size-used} / {size-total} ({size-percentage}\u001b[97m) <{filesystem}>",
+      "key": "{$2} \u001b[37m  Disk "
     },
 
     {
@@ -122,8 +125,8 @@
     },
     {
       "type": "localip",
-      "format": "\u001b[97m({ifname}) {ipv4}",
-      "key": "{$2} \u001b[97m󰩠  Ip "
+      "format": "\u001b[37m({ifname}) {ipv4}",
+      "key": "{$2} \u001b[37m󰩠  Ip "
     },
 
     {
@@ -147,10 +150,9 @@
     },
     {
       "type": "cursor",
-      "format": "\u001b[97m{theme} ({size}px)",
-      "key": "{$2} \u001b[97m  Cursor "
+      "format": "\u001b[37m{theme} ({size}px)",
+      "key": "{$2} \u001b[37m  Cursor "
     },
-
     {
        "type": "custom",
        "format": "{$1}"
@@ -158,7 +160,7 @@
     {
       "type": "colors",
       "paddingLeft": 2,
-      "symbol": "square"
+      "symbol": "circle"
     }
   ]
 }

@@ -1,0 +1,37 @@
+return {
+  'saghen/blink.cmp',
+  dependencies = { 'rafamadriz/friendly-snippets' },
+  version = '1.*',
+  opts = {
+    appearance = { nerd_font_variant = 'mono' },
+
+    keymap = { 
+      preset = 'enter',
+      -- Select completions
+      ['<Up>'] = { 'select_prev', 'fallback' },
+      ['<Down>'] = { 'select_next', 'fallback' },
+      ['<Tab>'] = { 'select_next', 'fallback' },
+      ['<S-Tab>'] = { 'select_prev', 'fallback' },
+      -- Scroll documentation
+      ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+      -- Show/hide signature
+      ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' }
+    },
+
+    completion = { 
+      documentation = { auto_show = false },
+      keyword = { range = 'prefix' }, 
+      menu = { draw = { treesitter = { 'lsp' }}},
+      trigger = { show_on_trigger_character = true },
+    },
+
+    fuzzy = { implementation = 'prefer_rust_with_warning' },
+    signature = { enabled = false },
+
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+  },
+  opts_extend = { 'sources.default' },
+}
