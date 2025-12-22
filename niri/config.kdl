@@ -1,3 +1,5 @@
+// start setup for non desktop env that not support autostart
+
 spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
@@ -5,6 +7,7 @@ spawn-at-startup "xdg-desktop-portal-gnome"
 spawn-at-startup "xdg-desktop-portal-gtk"
 
 spawn-sh-at-startup "~/.config/scripts/start-wayland.sh"
+spawn-sh-at-startup "~/.config/scripts/battery-warn.sh"
 
 environment {
     DISPLAY ":0"
@@ -214,11 +217,6 @@ animations {
 }
 
 window-rule {
-    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    // default-column-width {}
-}
-
-window-rule {
     match is-window-cast-target=true
 
     focus-ring {
@@ -237,21 +235,20 @@ window-rule {
 }
 
 window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-    // block-out-from "screencast"
-}
-
 window-rule {
-    geometry-corner-radius 8
-    clip-to-geometry true
+    match title="WallpaperSelector"
+    open-floating true
+    default-column-width { fixed 600; }
+    default-window-height { fixed 400; }
 }
 
 binds {
@@ -261,7 +258,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+    Mod+B hotkey-overlay-title="Wallpaper switcher" { spawn "kitty" "--title" "WallpaperSelector" "-e" "/home/dolomi/.config/scripts/swaybg-selector.sh"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }

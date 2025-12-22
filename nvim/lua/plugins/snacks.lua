@@ -113,24 +113,7 @@ return {
       },
     },
 
-    indent = {
-      priority = 1,
-      only_scope = false,
-      only_current = false,
-      hl = 'SnacksIndent',
-      animate = { enabled = false },
-      scope = {
-        priority = 200,
-        char = '❘',
-        underline = false,
-        only_current = false,
-        hl = 'SnacksIndentScope',
-      },
 
-      --filter = function(buf, win)
-      --  return vim.g.snacks_indent ~= false and vim.b[buf].snacks_indent ~= false and vim.bo[buf].buftype == ''
-      --end,
-    },
 
     image = {
       formats = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'heic',

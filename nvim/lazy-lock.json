@@ -6,6 +6,7 @@
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
+  "roslyn.nvim": { "branch": "main", "commit": "548d98036ac7f0a11f60e699aa020639fff1c57b" },
   "snacks.nvim": { "branch": "main", "commit": "fe7cfe9800a182274d0f868a74b7263b8c0c020b" },
   "vim-earl-grey": { "branch": "master", "commit": "ad25c660be253930bc9f0d35272b45407398a3dd" }
 }

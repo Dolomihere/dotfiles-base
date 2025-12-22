@@ -5,7 +5,7 @@ opt.number = true -- Line number
 opt.relativenumber = true -- Relative line number
 opt.cursorline = true -- Highlight current cursor placement
 opt.scrolloff = 10 -- Keep x line above/below when scrolling
-opt.sidescrolloff = 8 -- Keep x columns characters left/right between cursor
+opt.sidescrolloff = 8 -- Keep x columns characters on left
 opt.wrap = false -- Don't wrap line
 opt.cmdheight = 1 -- Status line height
 opt.spelllang = { 'en' } -- Set language for spellchecking
@@ -27,6 +27,8 @@ opt.hlsearch = false -- Don't highlight search results
 opt.incsearch = true -- Show matches as you type
 
 -- Visual settings
+opt.list = true
+opt.listchars = { tab = "▸ ", trail = "·", nbsp = "␣" }
 opt.termguicolors = true -- Use 24-bit colors ansi
 opt.signcolumn = 'yes' -- Always show sign column
 opt.colorcolumn = '100' -- Show column of x characters
@@ -63,7 +65,7 @@ local undodir = '/tmp/nvim/undodir' -- Undo directory path
 opt.undodir = vim.fn.expand(undodir) -- Expand to full path
 local undodir_path = vim.fn.expand(undodir)
 if vim.fn.isdirectory(undodir_path) == 0 then
-	vim.fn.mkdir(undodir_path, 'p') -- Create if not exists
+  vim.fn.mkdir(undodir_path, 'p') -- Create if not exists
 end
 
 -- Behavior Settings
@@ -83,12 +85,12 @@ opt.wildignorecase = true -- Case-insensitive tab completion in commands
 
 -- Cursor Settings
 opt.guicursor = {
-	'n-v-c:block', -- Normal, Visual, Command-line
-	'i-ci-ve:ver20', -- Insert, Command-line Insert, Visual-exclusive
-	'r-cr:hor20', -- Replace, Command-line Replace
-	'o:hor50', -- Operator-pending
-	'a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor', -- All modes: blinking & highlight groups
-	'sm:block-blinkwait175-blinkoff150-blinkon175', -- Showmatch mode
+  'n-v-c:block', -- Normal, Visual, Command-line
+  'i-ci-ve:ver20', -- Insert, Command-line Insert, Visual-exclusive
+  'r-cr:hor20', -- Replace, Command-line Replace
+  'o:hor50', -- Operator-pending
+  'a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor', -- All modes: blinking & highlight groups
+  'sm:block-blinkwait175-blinkoff150-blinkon175', -- Showmatch mode
 }
 
 -- Folding Settings

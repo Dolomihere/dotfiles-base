@@ -2,7 +2,7 @@
   "layer": "top",
   "reload_style_on_change": true,
 
-  "modules-left": ["custom/icon", "clock", "custom/weather"],
+  "modules-left": ["custom/icon", "custom/weather", "clock"],
   "modules-center": ["niri/workspaces"],
   "modules-right": ["backlight", "wireplumber", "network", "cpu", "memory", "battery"],
 
@@ -34,6 +34,14 @@
     "on-click-right": "fuzzel"
   },
 
+  "custom/weather": {
+    "exec": "curl -s -A 'Thanks for the module!! Love from NixOS' 'https://wttr.in/Vietnam?format=1'",
+    "interval": 14400,
+    "format": "{}",
+    "tooltip": false,
+    "return-type": "text"
+  },
+
   "clock": {
     "format": "Today is {:%A at <span bgcolor='#CACFDB' fgcolor='#605A52'> %I:%M %p </span>}",
     "format-alt": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰃰 </span> {:%b %d | %H:%M}",
@@ -49,14 +57,6 @@
         "today":      "<span color='#dbbc7f'><b><u>{}</u></b></span>"
       }
     }
-  },
-
-  "custom/weather": {
-    "exec": "curl -s -A 'Thanks for the module!! Love from NixOS' 'https://wttr.in/Vietnam?format=1'",
-    "interval": 14400,
-    "format": "{}",
-    "tooltip": false,
-    "return-type": "text"
   },
 
   "backlight": {
@@ -128,7 +128,7 @@
       "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
       "plugged": [""]
     },
-    "interval": 45
+    "interval": 60
   },
 
   "disk": {
