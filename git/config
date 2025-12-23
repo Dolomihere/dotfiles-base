@@ -11,7 +11,7 @@
 [gpg "ssh"]
   allowedSignersFile = "~/.ssh/allowed_signers"
   
-[ini]
+[init]
   defaultBranch = "main"
 
 [tag]

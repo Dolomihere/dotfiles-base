@@ -21,6 +21,17 @@ text-color=#605A52
 border-color=#CACFDB
 progress-color=over #9B7896
 
+[app-name=AlertBat]
+anchor=top-right
+default-timeout=30000
+icons=0
+width=210
+border-radius=10,0,10,10
+outer-margin=0,0,0,0
+margin=5,0,0,0
+padding=12,10,0,0
+text-alignment=right
+
 [urgency=low]
 border-color=#9E9A95
 

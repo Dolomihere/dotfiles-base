@@ -40,7 +40,7 @@ window#waybar {
 
 window#waybar > box {
   /* background-color: @bar_color; */
-  margin: 6px 10px 0; 
+  margin: 6px 8px 0; 
 }
 
 /* style for tooltip on hover on module */

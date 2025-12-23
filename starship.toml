@@ -40,12 +40,12 @@ show_always = true
 format = '[$ssh_symbol$hostname : ]($style)'
 ssh_only = true
 ssh_symbol = ' '
-style = 'bg:#212736 bold yellow'
+style = 'bg:#212736 bold #E0AF68'
 
 [directory]
 format = '[ $path ]($style)'
 style = 'bg:#769FF0 fg:#E3E5E5'
-truncation_length = 4
+truncation_length = 3
 truncation_symbol = '…/'
 
 [directory.substitutions]
@@ -86,7 +86,7 @@ diverged = '[⇡${ahead_count}/⇣${behind_count}](bg:#394260 fg:#F06292) '
 
 [git_state]
 format = '[$state $progress_current/$progress_total ]($style)'
-style =	'bg:#394260 fg:#769FF0'
+style = 'bg:#394260 fg:#769FF0'
 
 rebase = '[Rebase](bg:#394260 fg:#FFA07A)'
 merge = '[Merge](bg:#394260 fg:#FFA07A)'
@@ -107,22 +107,22 @@ style = 'bg:#1D2230 fg:#A0A9CB'
 disabled = false
 format = '[lv.$shlvl ]($style)'
 threshold = 2
-style = 'bg:#1D2230 bold yellow'
+style = 'bg:#1D2230 bold #E0AF68'
 
 [status]
 format = '[$symbol]($style)'
 disabled = false
 map_symbol = true
 style = 'bg:#1D2230'
-symbol = ' [✘](bg:#1D2230 bold red) '
-success_symbol = ' [✔](bg:#1D2230 bold green) '
-sigint_symbol = ' [](bg:#1D2230 bold yellow) '
-signal_symbol = ' [](bg:#1D2230 bold blue) '
-not_executable_symbol = ' [󱏎](bg:#1D2230 bold purple) '
-not_found_symbol = ' [󰱼](bg:#1D2230 bold cyan) '
+symbol = ' [✘](bg:#1D2230 bold #F7768E) '
+success_symbol = ' [✔](bg:#1D2230 bold #73DACA) '
+sigint_symbol = ' [](bg:#1D2230 bold #E0AF68) '
+signal_symbol = ' [](bg:#1D2230 bold #7AA2F7) '
+not_executable_symbol = ' [󱏎](bg:#1D2230 bold #BB9AF7) '
+not_found_symbol = ' [󰱼](bg:#1D2230 bold #7DCFFF) '
 
 [cmd_duration]
-format = '[took [$duration]($style bold yellow) ]($style)'
+format = '[took [$duration]($style bold #E0Af68) ]($style)'
 min_time = 5_000
 style = 'bg:#1D2230 fg:#A0A9CB'
 
@@ -134,5 +134,5 @@ style = 'bg:#212736 fg:#769FF0'
 
 [character]
 format = '$symbol'
-success_symbol = '[▸ ](bold green)'
-error_symbol = '[▸ ](bold red)'
+success_symbol = '[▸ ](bold #73DACA)'
+error_symbol = '[▸ ](bold #F7768E)'

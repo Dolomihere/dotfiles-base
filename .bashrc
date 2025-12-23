@@ -4,18 +4,22 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+
 export STARSHIP_CACHE=/tmp/starship/cache
 eval "$(starship init bash)"
 
-# Simple transient prompt for bash
-delete_first_line() {
-  tput cuu 2
+# Dead simple transient prompt for bash
+function lastcommand {
+  history | tail -1 | cut -c 8-
+}
+
+function deleteprompt {
+  n=${PS1@P}
+  n=${n//[^$'\n']}
+  n=${#n}
+  tput cuu $((n + 1))
   tput ed
 }
 
-last_command() { 
-  history 1 | sed 's/ *[0-9]\+ *//'
-}
-
-PS0='\[$(delete_first_line)\]▸ $(last_command)\n'
+PS0='\[$(deleteprompt)\]▸ $(lastcommand)\n\[${PS1:0:$((EXPS0=1,0))}\]'
 
