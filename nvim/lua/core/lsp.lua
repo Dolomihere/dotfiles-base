@@ -1,24 +1,53 @@
--- Remove Global Default Key mapping
+-- Remove global default nvim lsp key mapping
 vim.keymap.del('n', 'grn')
 vim.keymap.del('n', 'gra')
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'gri')
 vim.keymap.del('n', 'gO')
 
--- Create keymapping
--- LspAttach: After an LSP Client performs 'initialize' and attaches to a buffer.
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function (args)
-    local keymap = vim.keymap
-    local lsp = vim.lsp
-    local bufopts = { noremap = true, silent = true }
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
+})
 
-    keymap.set('n', 'gr', lsp.buf.references, bufopts)
-    keymap.set('n', 'gd', lsp.buf.definition, bufopts)
-    keymap.set('n', '<space>rn', lsp.buf.rename, bufopts)
-    keymap.set('n', 'K', lsp.buf.hover, bufopts)
-    keymap.set('n', '<space>f', function()
-        vim.lsp.buf.format({ async = true })
-    end, bufopts)
-  end
+vim.lsp.enable({
+  "bashls",
+  "cssls",
+  "emmet_language_server",
+  "eslint",
+  "html",
+  "jsonls",
+  "lua_ls",
+  "tailwindcss",
+  "ts_ls",
+  "svelte"
+})
+
+vim.diagnostic.config({
+  virtual_lines = true,
+  --virtual_text = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = true,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚 ",
+      [vim.diagnostic.severity.WARN] = "󰀪 ",
+      [vim.diagnostic.severity.INFO] = "󰋽 ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      [vim.diagnostic.severity.WARN] = "WarningMsg",
+    },
+  },
 })

@@ -21,5 +21,5 @@ function deleteprompt {
   tput ed
 }
 
-PS0='\[$(deleteprompt)\]▸ $(lastcommand)\n\[${PS1:0:$((EXPS0=1,0))}\]'
+PS0="\[$(deleteprompt)\]▸ $(lastcommand)\n\[${PS1:0:$((EXPS0=1,0))}\]"
 

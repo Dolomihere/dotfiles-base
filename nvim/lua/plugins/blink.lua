@@ -1,37 +1,67 @@
 return {
-  'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
-  version = '1.*',
+  "saghen/blink.cmp",
+  dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip", "neovim/nvim-lspconfig" },
+  version = '*',
   opts = {
-    appearance = { nerd_font_variant = 'mono' },
+    snippets = { preset = "luasnip" },
+    signature = { enabled = true },
+    appearance = {
+      use_nvim_cmp_as_default = false,
+      nerd_font_variant = "normal",
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
+    keymap = {
+      preset = 'none', -- Disable presets if you want full manual control
+      ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<C-e>'] = { 'hide' },
+      ['<CR>'] = { 'accept', 'fallback' },
 
-    keymap = { 
-      preset = 'enter',
-      -- Select completions
-      ['<Up>'] = { 'select_prev', 'fallback' },
-      ['<Down>'] = { 'select_next', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
-      -- Scroll documentation
+
       ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-      -- Show/hide signature
-      ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' }
     },
-
-    completion = { 
-      documentation = { auto_show = false },
-      keyword = { range = 'prefix' }, 
-      menu = { draw = { treesitter = { 'lsp' }}},
-      trigger = { show_on_trigger_character = true },
+    cmdline = {
+      enabled = false, -- This disables completion in the command line (:) 
+      completion = { menu = { auto_show = true } },
+      keymap = {
+          ["<CR>"] = { "accept_and_enter", "fallback" },
+      },
     },
-
-    fuzzy = { implementation = 'prefer_rust_with_warning' },
-    signature = { enabled = false },
-
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    completion = {
+      menu = {
+        border = "single",
+        scrolloff = 1,
+        scrollbar = false,
+        draw = {
+          columns = {
+            { "kind_icon" },
+            { "label", "label_description", gap = 1 },
+            { "kind" },
+          },
+        },
+      },
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = false
+        },
+      },
+      accept = {
+        auto_brackets = { enabled = true },
+      },
+      documentation = {
+        window = {
+          border = "single",
+          scrollbar = false,
+          winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc',
+        },
+        auto_show = true,
+        auto_show_delay_ms = 500,
+      },
     },
-  },
-  opts_extend = { 'sources.default' },
+  }
 }

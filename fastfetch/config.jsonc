@@ -150,7 +150,7 @@
     },
     {
       "type": "cursor",
-      "format": "\u001b[37m{theme} ({size}px)",
+      "format": "\u001b[37m{$XCURSOR_THEME} ({size}px)",
       "key": "{$2} \u001b[37m  Cursor "
     },
     {
