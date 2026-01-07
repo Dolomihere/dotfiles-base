@@ -2,31 +2,32 @@
   lg = "log --graph --pretty=format:'%C(bold red)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(yellow)%ad%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=human --decorate=short --all"
   st = "status --short --branch --renames"
 
+[color]
+  ui = auto
+
 [commit]
   gpgSign = true
+
+[diff]
+  renames = true
 
 [gpg]
   format = "ssh"
 
 [gpg "ssh"]
+  program = "ssh-keygen"
   allowedSignersFile = "~/.ssh/allowed_signers"
-  
+
 [init]
   defaultBranch = "main"
+
+[status]
+  branch = true
 
 [tag]
   gpgSign = true
 
 [user]
-  email = "cnqb.tc@gmail.com"
-  name = "ChungBao"
-  signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4Ba0zLoDtAtp+hciKwnLIkzJyRlvCUZFP0WcYsJD4V"
-
-[diff]
-  renames = true
-
-[status]
-  branch = true
-
-[color]
-  ui = auto
+  email = "171922784+Dolomihere@users.noreply.github.com"
+  name = "Dolomi"
+  signingKey = "~/.ssh/git.pub"

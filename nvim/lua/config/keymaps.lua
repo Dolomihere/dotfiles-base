@@ -41,5 +41,6 @@ key.set('n', 'J', 'mzJ`z', vim.tbl_extend('force', opts, { desc = 'Join lines an
 key.set('n', '<leader>v', function ()
   vim.cmd.e(vim.fn.stdpath('config') .. '/init.lua')
 end, vim.tbl_extend('force', opts, { desc = 'Edit main config file init.lua' }))
+
 -- File Explorer
 key.set('n', '<leader>e', '<Cmd>Lexplore<CR>', vim.tbl_extend('force', opts, { desc = 'Toggle File Explorer' }))

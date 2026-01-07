@@ -13,7 +13,7 @@ return {
       default = { "lsp", "path", "snippets", "buffer" },
     },
     keymap = {
-      preset = 'none', -- Disable presets if you want full manual control
+      preset = 'none',
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide' },
       ['<CR>'] = { 'accept', 'fallback' },
@@ -25,7 +25,7 @@ return {
       ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
     },
     cmdline = {
-      enabled = false, -- This disables completion in the command line (:) 
+      enabled = false,
       completion = { menu = { auto_show = true } },
       keymap = {
           ["<CR>"] = { "accept_and_enter", "fallback" },
