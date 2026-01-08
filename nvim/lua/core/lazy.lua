@@ -26,8 +26,8 @@ require('lazy').setup({
     version = false,
   },
 
-  checker = { 
-    enabled = false, 
+  checker = {
+    enabled = false,
     notify = false,
   },
 
