@@ -38,9 +38,15 @@ key.set('v', '>', '>gv', vim.tbl_extend('force', opts, { desc = 'Indent right an
 key.set('n', 'J', 'mzJ`z', vim.tbl_extend('force', opts, { desc = 'Join lines and keep cursor position' }))
 
 -- Quick config editing
-key.set('n', '<leader>v', function ()
+key.set('n', '<leader>l', function ()
   vim.cmd.e(vim.fn.stdpath('config') .. '/init.lua')
 end, vim.tbl_extend('force', opts, { desc = 'Edit main config file init.lua' }))
 
 -- File Explorer
-key.set('n', '<leader>e', '<Cmd>Lexplore<CR>', vim.tbl_extend('force', opts, { desc = 'Toggle File Explorer' }))
+key.set('n', '<leader>i', function()
+  if vim.bo.filetype == 'netrw' then
+    vim.cmd('bwipeout')
+  else
+    vim.cmd('Lexplore')
+  end
+end, vim.tbl_extend('force', opts, { desc = 'Toggle File Explorer' }))

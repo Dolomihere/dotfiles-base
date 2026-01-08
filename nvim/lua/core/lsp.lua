@@ -1,20 +1,15 @@
--- Remove global default nvim lsp key mapping
+-- Remove global default nvim lsp diagnostic key mapping and add new keymap for lsp diagnostic
 vim.keymap.del('n', 'grn')
 vim.keymap.del('n', 'gra')
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'gri')
 vim.keymap.del('n', 'gO')
 
-vim.lsp.config('lua_ls', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' },
-      },
-    },
-  },
-})
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostic error" })
 
+-- Enable a lsp server
 vim.lsp.enable({
   "bashls",
   "cssls",
@@ -27,6 +22,19 @@ vim.lsp.enable({
   "ts_ls",
   "svelte"
 })
+
+-- Custom toggleable inline lsp diagnostic
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>di', function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.enable(true)
+    print("LSP Errors: ON")
+  else
+    vim.diagnostic.enable(false)
+    print("LSP Errors: OFF")
+  end
+end, { desc = "Toggle LSP Diagnostics" })
 
 vim.diagnostic.config({
   virtual_lines = true,

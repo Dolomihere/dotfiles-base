@@ -6,22 +6,22 @@ continuation_prompt = '[▹ ](bold white)'
 format = """
 [░▒▓](#A3AED2)\
 [ 󱆃 ](bg:#A3AED2 fg:#090C0C)\
-[](bg:#769FF0 fg:#A3AED2)\
+[](bg:#769FF0 fg:#A3AED2)\
 $directory\
-[](bg:#394260 fg:#769FF0)\
+[](bg:#394260 fg:#769FF0)\
 $git_branch\
 $git_commit\
 $git_status\
 $git_state\
-[](bg:#212736 fg:#394260)\
+[](bg:#212736 fg:#394260)\
 $shell\
 $shlvl\
-[](fg:#1D2230)\
+[](fg:#1D2230)\
 $fill\
-[](fg:#1D2230)\
+[](fg:#1D2230)\
 $status\
 $cmd_duration\
-[](bg:#090C0C fg:#A3AED2)\
+[](bg:#090C0C fg:#A3AED2)\
 $time\
 [▓▒░](#A3AED2)\
 \n$character
@@ -51,10 +51,11 @@ truncation_symbol = '…/'
 [directory.substitutions]
 "Documents" = '󰈙'
 "Downloads" = ''
-"Musics" = ''
+"Music" = ''
 "Pictures" = ''
-"Sources" = '󰲋'
+"Source" = '󰲋'
 "Videos" = ''
+"Desktop" = ''
 
 [git_branch]
 always_show_remote = true
