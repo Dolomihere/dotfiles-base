@@ -38,6 +38,7 @@ require('lazy').setup({
         'gzip',
         'matchit',
         'matchparen',
+        'netrw',
         'tarPlugin',
         'tohtml',
         'tutor',

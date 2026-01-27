@@ -81,18 +81,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Change keymap of Netrw
-vim.api.nvim_create_autocmd('filetype', {
-  pattern = 'netrw',
-  desc = 'Better mappings for Netrw',
-  callback = function()
-    local bind = function(lhs, rhs)
-      vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
-    end
-
-    bind('<C-h>', '<C-w>h')
-    bind('<C-j>', '<C-w>j')
-    bind('<C-k>', '<C-w>k')
-    bind('<C-l>', '<C-w>l')
-  end
-})

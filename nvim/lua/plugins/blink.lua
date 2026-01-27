@@ -1,16 +1,16 @@
 return {
-  "saghen/blink.cmp",
-  dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip", "neovim/nvim-lspconfig" },
+  'saghen/blink.cmp',
+  dependencies = { 'rafamadriz/friendly-snippets', 'L3MON4D3/LuaSnip', 'neovim/nvim-lspconfig' },
   version = '*',
   opts = {
-    snippets = { preset = "luasnip" },
+    snippets = { preset = 'luasnip' },
     signature = { enabled = true },
     appearance = {
       use_nvim_cmp_as_default = false,
-      nerd_font_variant = "normal",
+      nerd_font_variant = 'normal',
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     keymap = {
       preset = 'none',
@@ -28,19 +28,19 @@ return {
       enabled = false,
       completion = { menu = { auto_show = true } },
       keymap = {
-          ["<CR>"] = { "accept_and_enter", "fallback" },
+          ['<CR>'] = { 'accept_and_enter', 'fallback' },
       },
     },
     completion = {
       menu = {
-        border = "single",
+        border = 'single',
         scrolloff = 1,
         scrollbar = false,
         draw = {
           columns = {
-            { "kind_icon" },
-            { "label", "label_description", gap = 1 },
-            { "kind" },
+            { 'kind_icon' },
+            { 'label', 'label_description', gap = 1 },
+            { 'kind' },
           },
         },
       },
@@ -55,7 +55,7 @@ return {
       },
       documentation = {
         window = {
-          border = "single",
+          border = 'single',
           scrollbar = false,
           winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc',
         },

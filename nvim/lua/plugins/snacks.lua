@@ -113,7 +113,20 @@ return {
       },
     },
 
+    input = {
+      icon = " ",
+      icon_hl = "SnacksInputIcon",
+      icon_pos = "left",
+      prompt_pos = "title",
+      win = { style = "input" },
+      expand = true,
+    },
 
+    rename = {},
+
+    explorer = {},
+
+    picker = {},
 
     image = {
       formats = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'heic',
@@ -190,5 +203,10 @@ return {
         },
       },
     },
+  },
+
+  keys = {
+    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
   },
 }
