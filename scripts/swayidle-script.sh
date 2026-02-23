@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
 
-DIR="${HOME}/Pictures"
-FALLBACK="${DIR}/not-available.png"
+shopt -s nullglob
+IMAGES=( ~/Pictures/lock*.{png,jpg,jpeg} )
 
-IMAGES=$(find "$DIR" -maxdepth 1 -type f \( -iname "lock*.png" -o -iname "lock*.jpg" -o -iname "lock*.jpeg" \))
-
-if [ -z "$IMAGES" ]; then
-  if [ -f "$FALLBACK" ]; then
-    IMG="${FALLBACK}"
-  else
-    exit 1
-  fi
+if [ ${#IMAGES[@]} -eq 0 ]; then
+    IMG="${HOME}/Pictures/not-available.png"
+    [ -f "${IMG}" ] || exit 1
 else
-  IMG=$(echo "${IMAGES}" | shuf -n 1)
+    IMG="${IMAGES[RANDOM % ${#IMAGES[@]}]}"
 fi
 
-swayidle -w \
+exec swayidle -w \
   timeout 600 "niri msg action power-off-monitors" \
   timeout 480 "swaylock -f -i ${IMG}" \
   before-sleep "swaylock -f" \

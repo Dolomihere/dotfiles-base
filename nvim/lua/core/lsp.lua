@@ -77,3 +77,5 @@ vim.keymap.set('n', '<leader>de', function() apply_preset(diagnostic_presets.err
 vim.keymap.set('n', '<leader>dc', function() apply_preset(diagnostic_presets.critical) end)
 vim.keymap.set('n', '<leader>di', function() apply_preset(diagnostic_presets.info) end)
 vim.keymap.set('n', '<leader>da', function() apply_preset(diagnostic_presets.all) end)
+
+apply_preset(diagnostic_presets.all)

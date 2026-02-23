@@ -27,7 +27,7 @@ for sym in "${SYMBOLS[@]}"; do
     echo "[Press ENTER for next symbol set, or q to quit]"
     read -r -s -n1 key
 
-    [[ "$key" == "q" ]] && exit 0
+    [[ "${key}" == "q" ]] && exit 0
     clear
 done
 

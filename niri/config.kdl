@@ -6,8 +6,11 @@ spawn-at-startup "pipewire-pulse"
 spawn-at-startup "xdg-desktop-portal-gnome"
 spawn-at-startup "xdg-desktop-portal-gtk"
 
-spawn-at-startup "~/.config/scripts/start-wayland.sh"
+spawn-at-startup "waybar"
+spawn-at-startup "~/.config/scripts/swaybg-script.sh"
+spawn-at-startup "~/.config/scripts/swayidle-script.sh"
 spawn-at-startup "~/.config/scripts/battery-warn.sh"
+spawn-at-startup "fcitx5" "-d"
 
 environment {
     DISPLAY ":0"

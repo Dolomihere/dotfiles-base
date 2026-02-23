@@ -1,38 +1,30 @@
 #!/usr/bin/env bash
 
 BAT_PATH="/sys/class/power_supply/BAT0"
-LOW=20
-CRIT=10
-DANG=5
+LAST_NOTIFIED=100
+LOW=20; CRIT=10; DANG=5 
 
-last_notified=100 
+[[ -d "${BAT_PATH}" ]] || exit 1
 
 while true; do
-  if [ -d "$BAT_PATH" ]; then
+    read -r LEVEL < "${BAT_PATH}/capacity"
+    read -r STATUS < "${BAT_PATH}/status"
 
-    LEVEL=$(cat "$BAT_PATH/capacity")
-    STATUS=$(cat "$BAT_PATH/status")
-
-    if [ "$STATUS" = "Discharging" ]; then
-
-      if [ "$LEVEL" -le "$DANG" ] && [ "$last_notified" -gt "$DANG" ]; then
-        notify-send -u critical -a "AlertBat" "BATTERY DYING: $LEVEL%" "Plug in NOW!"
-        last_notified=$DANG
-
-      elif [ "$LEVEL" -le "$CRIT" ] && [ "$last_notified" -gt "$CRIT" ]; then
-        notify-send -u critical -a "AlertBat" "Battery Critical: $LEVEL%" "Save your work."
-        last_notified=$CRIT
-
-      elif [ "$LEVEL" -le "$LOW" ] && [ "$last_notified" -gt "$LOW" ]; then
-        notify-send -u normal -a "AlertBat" "Battery Low: $LEVEL%" "Find a charger."
-        last_notified=$LOW
-      fi
-
+    if [[ "${STATUS}" == "Discharging" ]]; then
+        if [[ "${LEVEL}" -le "${DANG}" && "${LAST_NOTIFIED}" -gt "${DANG}" ]]; then
+            notify-send -u critical -a "AlertBat" "BATTERY DYING: ${LEVEL}%" "Plug in NOW!"
+            LAST_NOTIFIED=$DANG
+        elif [[ "${LEVEL}" -le "${CRIT}" && "${LAST_NOTIFIED}" -gt "${CRIT}" ]]; then
+            notify-send -u critical -a "AlertBat" "Battery Critical: ${LEVEL}%" "Save your work."
+            LAST_NOTIFIED=${CRIT}
+        elif [[ "${LEVEL}" -le "${LOW}" && "${LAST_NOTIFIED}" -gt "${LOW}" ]]; then
+            notify-send -u normal -a "AlertBat" "Battery Low: ${LEVEL}%" "Find a charger."
+            LAST_NOTIFIED=${LOW}
+        fi
     else
-      last_notified=100
+        LAST_NOTIFIED=100
     fi
-  fi
 
-  sleep 60
+    sleep 60
 done
 

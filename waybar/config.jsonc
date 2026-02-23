@@ -35,7 +35,7 @@
   },
 
   "custom/weather": {
-    "exec": "curl -s -A 'Thanks for the module!! Love from NixOS' 'https://wttr.in/Vietnam?format=1'",
+    "exec": "curl -s -A 'Thanks for the module!' 'https://wttr.in/Vietnam?format=1'",
     "interval": 14400,
     "format": "{}",
     "tooltip": false,
