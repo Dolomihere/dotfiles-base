@@ -36,13 +36,13 @@ input {
     }
 
     mouse {
-        accel-speed 0.3
+        accel-speed 0.4
         natural-scroll
         scroll-method "no-scroll"
     }
 
     trackpoint {
-        off
+        accel-speed 0.4
     }
 
     mod-key "Super"

@@ -5,7 +5,6 @@ export STARSHIP_CACHE=/tmp/starship
 export NO_AT_SPI=1
 
 export IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 

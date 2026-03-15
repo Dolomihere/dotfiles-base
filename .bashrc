@@ -5,7 +5,6 @@
 
 alias ls='ls --color=auto'
 
-export STARSHIP_CACHE=/tmp/starship/cache
 eval "$(starship init bash)"
 
 # Dead simple transient prompt for bash
@@ -21,5 +20,5 @@ function deleteprompt {
   tput ed
 }
 
-PS0="\[$(deleteprompt)\]▸ $(lastcommand)\n\[${PS1:0:$((EXPS0=1,0))}\]"
+PS0='\[$(deleteprompt)\]▸ $(lastcommand)\n\[${PS1:0:$((EXPS0=1,0))}\]'
 
