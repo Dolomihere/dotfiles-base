@@ -5,15 +5,12 @@ export STARSHIP_CACHE=/tmp/starship
 export NO_AT_SPI=1
 
 export IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 [ -f "$HOME"/.bashrc ] && . "$HOME"/.bashrc
 
-if [ -e /home/dolomi/.nix-profile/etc/profile.d/nix.sh ]; then 
-  . /home/dolomi/.nix-profile/etc/profile.d/nix.sh; 
-fi # added by Nix installer
+if [ -e /home/dolomi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/dolomi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
   set -m
