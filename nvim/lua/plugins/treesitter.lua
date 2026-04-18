@@ -2,9 +2,9 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   lazy = false,
-  branch = 'master',
+  branch = 'main',
   config = function()
-    require('nvim-treesitter.configs').setup({
+    require('nvim-treesitter').setup({
       -- A list of parser names, or 'all' (the listed parsers MUST always be installed)
       ensure_installed = { 'bash', 'c', 'c_sharp', 'css', 'html', 'javascript', 'json',
         'jsonc', 'lua', 'markdown', 'markdown_inline', 'nix', 'typescript', 'vue' },
