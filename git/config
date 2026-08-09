@@ -1,0 +1,36 @@
+[alias]
+  co = checkout
+  br = branch
+  cm = commit
+  st = status
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+
+[color]
+  ui = auto
+
+[commit]
+  gpgSign = true
+
+[diff]
+  renames = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = ssh-keygen
+  allowedSignersFile = ~/.ssh/allowed_signers
+
+[init]
+  defaultBranch = main
+
+[status]
+  branch = true
+
+[tag]
+  gpgSign = true
+
+[user]
+  email = 171922784+Dolomihere@users.noreply.github.com
+  name = Dolomi
+  signingKey = ~/.ssh/git.pub

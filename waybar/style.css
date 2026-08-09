@@ -1,0 +1,133 @@
+/* --------------- */
+/* define bar rule */
+/* --------------- */
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0;
+}
+
+window#waybar {
+  font: 14px "Mononoki Nerd Font";
+  background-color: transparent;
+  color: white;
+  margin: 0;
+}
+
+window#waybar > box {
+  background-color: black;
+  margin: 4px 0 4px 4px;
+}
+
+/* style for tooltip on hover on module */
+tooltip {
+  font: 14px "Mononoki Nerd Font";
+}
+
+tooltip > box {
+  border-radius: 2px;
+}
+
+tooltip > label {
+  font-size: 14px;
+}
+/* style for tooltip on hover on module */
+
+/* --------------------------------- */ 
+/* style that apply for most modules */
+/* --------------------------------- */
+
+#custom-powerbtn,
+#clock,
+#custom-drawer-icon,
+#backlight,
+#wireplumber,
+#network,
+#bluetooth,
+#battery {
+  padding: 6px 6px;
+  color: white;
+}
+
+/* ------------------------------ */
+/* style only modules on the left */
+/* ------------------------------ */
+
+#custom-powerbtn {
+  box-shadow: inset 2px 0px red;
+}
+
+#clock {
+  box-shadow: inset 2px 0px cornflowerblue;
+}
+
+/* ---------------------------- */
+/* style only modules in middle */
+/* ---------------------------- */
+
+button:hover {
+  background: none;
+}
+
+#workspaces {
+  background-color: transparent;
+  box-shadow: inset 2px 0px forestgreen;
+}
+
+#workspaces > button {
+  box-shadow: none;
+  border: none;
+  color: white;
+  padding: 4px 0;
+  text-shadow: none;
+}
+
+#workspaces > button:hover {
+  border-radius: 2px;
+  transition: none;
+}
+
+#workspaces > button.active {
+  color: @worksp_active_color;
+}
+
+#workspaces > button.active:hover {
+  background-color: @worksp_hover_color;
+}
+
+#workspaces button.focused {
+}
+
+#workspaces button.focused:hover {
+}
+
+#workspaces > button.urgent {
+  background-color: @worksp_urgent_color;
+}
+
+/* ------------------------------- */
+/* style only modules on the right */
+/* ------------------------------- */
+
+#custom-drawer-icon {
+  box-shadow: inset 2px 0px brown;
+}
+
+#backlight {
+  box-shadow: inset 2px 0px orange;
+}
+
+#wireplumber {
+  box-shadow: inset 2px 0px maroon;
+}
+
+#network {
+  box-shadow: inset 2px 0px honeydew;
+}
+
+#battery,
+#battery.charging,
+#battery.plugged {
+  box-shadow: inset 2px 0px green;
+}

@@ -1,0 +1,120 @@
+{
+  "layer": "top",
+  "position": "left",
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/powerbtn", "clock"],
+  "modules-center": ["niri/workspaces"],
+  "modules-right": ["group/control", "network", "battery"],
+
+  "custom/powerbtn": {
+    "format": "󰤆",
+    "tooltip": false,
+    "on-click": "wlogout -b 4 -s -n -c 40px -m 400px"
+  },
+
+  "clock": {
+    "format": "{:%b\n%d\n-\n%H\n%M}",
+    "tooltip-format": "<big>Calendar</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "format": {
+        "months":     "<span color='#d3c6aa'><b>{}</b></span>",
+        "days":       "<span color='#e67e80'>{}</span>",
+        "weeks":      "<span color='#a7c080'><b>{:%W}</b></span>",
+        "weekdays":   "<span color='#7fbbb3'><b>{}</b></span>",
+        "today":      "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    },
+    "justify": "center"
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "disable-scroll": true,
+    "justify": "center"
+  },
+
+  "group/control": {
+    "orientation": "vertical",
+    "drawer": {
+      "transition-duration": 400,
+      "children-class": "control-child",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/drawer-icon",
+      "backlight",
+      "wireplumber"
+    ] 
+  },
+
+  "custom/drawer-icon": {
+    "format": "↑",
+    "tooltip": false,
+    "justify": "center"
+  },
+
+  "backlight": {
+    "format": "{percent}%\n{icon}",
+    "format-icons": ["󰃞","󰃟","󰃝","󰃠"],
+    "scroll-step": 0.5,
+    "tooltip": false,
+    "on-click": "brightnessctl set +1%",
+    "on-click-right": "brightnessctl set 1%-",
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "justify": "center"
+  },
+
+  "wireplumber": {
+    "format": "{volume}%\n{icon}",
+    "format-bluetooth": "{volume}%\n",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphones": "",
+      "default": ["󰖀", "󰕾"]
+    },
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+    "scroll-step": 0.5,
+    "tooltip": false,
+    "justify": "center"
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "󰘊",
+    "format-ethernet": "",
+    "format-disconnected": "󰖪",
+    "tooltip-format": " {ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "no signal",
+    "justify": "center"
+  },
+
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{capacity}%\n{icon}",
+    "format-charging": "{capacity}%\n{icon}",
+    "format-plugged": "{icon}",
+    "format-icons": {
+      "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+      "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
+      "plugged": [""]
+    },
+    "interval": 60,
+    "justify": "center"
+  }
+}
